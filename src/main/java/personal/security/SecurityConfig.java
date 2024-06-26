@@ -1,2 +1,4 @@
-package personal.security;public class SecurityConfig {
+package personal.security;
+
+public class SecurityConfig {
 }
