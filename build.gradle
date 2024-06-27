@@ -32,6 +32,13 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.security:spring-security-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+	implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
+	implementation 'org.glassfish.web:jakarta.servlet.jsp.jstl'
+	implementation 'jakarta.servlet.jsp.jstl:jakarta.servlet.jsp.jstl-api'
+
+	implementation 'com.oracle.database.jdbc:ojdbc11' //11은 해당 jdbc를 만들 때 jvm의 버전
+	implementation 'org.springframework.boot:spring-boot-starter-jdbc'//DataSourceUtils
 }
 
 tasks.named('test') {
