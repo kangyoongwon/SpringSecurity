@@ -31,7 +31,7 @@
 <body>
     <form id="loginForm">
         <p><input type="text" name="id"></p>
-        <p><input type="text" name="pwd"></p>
+        <p><input type="password" name="pwd"></p>
         <p><input type="submit"></p>
     </form>
 </body>
