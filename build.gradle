@@ -1,0 +1,73 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.4.0'
+	id 'io.spring.dependency-management' version '1.1.6'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(17)
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test' //
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher' //
+
+	implementation 'org.springframework.boot:spring-boot-starter-web' // 필수
+
+	// https://mvnrepository.com/artifact/org.springframework/spring-web
+//	implementation group: 'org.springframework', name: 'spring-web', version: '6.1.12' // 얘 있으면 WebMvcConfigurer 구현해줘야 함
+
+	implementation 'org.springframework.boot:spring-boot-starter-security' //
+	testImplementation 'org.springframework.security:spring-security-test' //
+
+	compileOnly 'org.projectlombok:lombok' //
+	annotationProcessor 'org.projectlombok:lombok' //
+
+//	implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
+//	implementation 'org.glassfish.web:jakarta.servlet.jsp.jstl'
+//	implementation 'jakarta.servlet.jsp.jstl:jakarta.servlet.jsp.jstl-api'
+
+
+	//Spring Data JDBC
+	implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
+	// JPA
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '3.2.3'
+	//Spring Data JPA
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	//OracleDriver(왜 runtimeonly라고 되어 있지?
+	runtimeOnly 'com.oracle.database.jdbc:ojdbc11'
+
+
+
+
+
+	//자동 reload 참고
+	developmentOnly("org.springframework.boot:spring-boot-devtools")
+
+	//== jwt 추가 ==//
+	implementation 'io.jsonwebtoken:jjwt-api:0.12.3'
+	implementation 'io.jsonwebtoken:jjwt-impl:0.12.3'
+	implementation 'io.jsonwebtoken:jjwt-jackson:0.12.3'
+//	implementation 'io.jsonwebtoken:jjwt-api:0.11.5'
+//	implementation 'io.jsonwebtoken:jjwt-impl:0.11.5'
+//	implementation 'io.jsonwebtoken:jjwt-jackson:0.11.5'
+//	testAnnotationProcessor 'org.projectlombok:lombok'
+//	testImplementation 'org.projectlombok:lombok'
+//	implementation 'commons-codec:commons-codec:1.5'
+//	implementation 'com.auth0:java-jwt:3.13.0'
+
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
